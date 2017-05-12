@@ -1,0 +1,27 @@
+{
+  "name": "Store",
+  "version": "1.0.0",
+  "engine": "node 7.9.0",
+  "description": " Node.js CLI for working with data in the form of key-value pairs",
+  "scripts": {
+    "test": "mocha -w test/index.spec.js test/helpers.spec.js",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nfurfaro/node-cli-datastore.git"
+  },
+  "author": "Nick Furfaro",
+  "license": "ISC",
+  "preferGlobal": true,
+  "bin": {
+    "store": "index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/nfurfaro/node-cli-datastore/issues"
+  },
+  "devDependencies": {
+    "mock-stdin": "^0.3.1",
+    "standard": "^10.0.2"
+  }
+}
