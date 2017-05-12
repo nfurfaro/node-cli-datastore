@@ -4,7 +4,7 @@ const fs = require('fs')
 const h = require('./helpers.js')
 const os = require('os')
 const db = `${os.tmpdir()}/storeDB.json`
-const args = process.argv.slice(2) // const args could be set by a gui instead of a cli.
+const args = process.argv.slice(2)
 const argLength = args.length
 const method = args[0]
 const key = args[1]
@@ -49,19 +49,15 @@ const remove = key => {
 
 /*
 test for key in storageObject
-If no combo matches a case, control is returned back to the calling function.
+If no combo matches a case, argsTest() will be called.
 */
 const keyTest = () => {
   h.read()
   switch (true) {
-    case method === '--add' && key in storageObject && storageObject[key] === value:
-    case method === '-a' && key in storageObject && storageObject[key] === value:
+    case method === ('--add' || '-a') && key in storageObject && storageObject[key] === value:
       console.log(`\nYour database already includes the key-value pair:\n\n\t\t   ${key}  :  ${value}\n\nTry changing the key or the value to something else.\n`)
       process.exit()
-    case method === '--get' && !(key in storageObject):
-    case method === '-g' && !(key in storageObject):
-    case method === '--remove' && !(key in storageObject):
-    case method === '-r' && !(key in storageObject):
+    case method === ('--get' || '-g' || '--remove' || '-r') && !(key in storageObject):
       console.log("Unfortunately, you've selected a key which does not exist. Run the `$ store --list` command to see all database entries.")
       process.exit()
     default:
@@ -71,27 +67,15 @@ const keyTest = () => {
 
 /*
 test for correct number of arguments to corresponding method.
-If any combo of method && argLength matches a case, control is returned back to the calling function.
+If any combo of method && argLength matches a case, controller() will be called.
 */
 const argsTest = () => {
   switch (true) {
-    case method === '--add' && argLength === 3:
-    case method === '-a' && argLength === 3:
+    case method === ('--add' || '-a') && argLength === 3:
       break
-    case method === '--list' && argLength === 1:
-    case method === '-l' && argLength === 1:
+    case method === ('--list' || '-l' || '--help' || '-h' || '--clean' || '-c') && argLength === 1:
       break
-    case method === '--get' && argLength === 2:
-    case method === '-g' && argLength === 2:
-      break
-    case method === '--remove' && argLength === 2:
-    case method === '-r' && argLength === 2:
-      break
-    case method === '--help' && argLength === 1:
-    case method === '-h' && argLength === 1:
-      break
-    case method === '--clean' && argLength === 1:
-    case method === '-c' && argLength === 1:
+    case method === ('--get' || '-g' || '--remove' || '-r') && argLength === 2:
       break
     default:
       console.log('\nWrong number of args.\nUse `$ store --help`.\n')
@@ -99,7 +83,7 @@ const argsTest = () => {
   }
 }
 
-// CLI-Args Controller.
+// CLI-Args Controller routes the CLI command to the correct method call.
 const controller = (method) => {
   switch (method) {
     case '--add':
@@ -130,14 +114,8 @@ const controller = (method) => {
       console.log('\nInvalid command.\n\t Use `$ store --help`.\n')
   }
 }
+
 exists()
 argsTest()
 keyTest()
 controller(method)
-
-exports.keyTest = keyTest
-exports.argsTest = argsTest
-exports.list = list
-exports.get = get
-exports.remove = remove
-exports.add = add

@@ -39,7 +39,7 @@ const write = (storageObject) => {
 
 // Create the database file
 const createDB = (file) => {
-  childProcess.exec(`echo "{}">>${db}`) // try using fs.open()
+  childProcess.exec(`echo "{}">>${db}`)
   console.log('Database initialized.')
 }
 
