@@ -1,10 +1,10 @@
-#Store
+# Store
 
-##Overview
+## Overview
 
 Store is a simple Node.js CLI for working with data in the form of key-value pairs. It provides basic Create / Update / Delete functionality, and will persist your data to a local file automatically.
 
-##Objectives
+## Objectives
 
 Allow the user to:
 
@@ -19,23 +19,23 @@ Allow the user to:
 - Remove a key-value pair.
 
 
-##Getting Started
+## Getting Started
 
 ###Installation
 These instructions assume that you already have Node installed globally on your system, and are familiar with using the command line.
 
-####Git
+#### Git
 Clone the repo using `$ git clone https://github.com/nfurfaro/node-cli-datastore.git`
 
 or
 
-####Zip Archive
+#### Zip Archive
 
 Download  the zip archive from https://github.com/nfurfaro/node-cli-datastore
 
 From inside the `node-cli-datastore` directory, run `$ npm install` to install project dependencies, followed by `$ npm link` to set up the executable command "store".
 
-###Usage
+### Usage
 `$ store help `
 View the store documentation.
 
@@ -54,8 +54,4 @@ example:`$ store get Company` returns `$ Tesera`
 Remove a key-value pair by its key.
 example:`$ store remove Company` removes both the key and its value.
 
-###Testing
-
-`$ npm test`
-More unit tests are needed.
 
