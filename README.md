@@ -21,7 +21,7 @@ Allow the user to:
 
 ## Getting Started
 
-###Installation
+### Installation
 These instructions assume that you already have Node installed globally on your system, and are familiar with using the command line.
 
 #### Git
