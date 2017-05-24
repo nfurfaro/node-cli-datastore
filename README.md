@@ -48,10 +48,10 @@ View all key-value pairs
 
 `$ store get <myKey> `
 Get a value by its key.
-example:`$ store get Company` returns `$ Tesera`
+example:`$ store get goesTo` returns `$ 11`
 
 `$ store remove <myKey>`
 Remove a key-value pair by its key.
-example:`$ store remove Company` removes both the key and its value.
+example:`$ store remove goesTo` removes both the key and its value.
 
 
